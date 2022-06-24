@@ -6,10 +6,10 @@ pipeline{
             sh "mvn clean package"
         }
      }
-     stage('Sonar_test') {
+     stage('sonar_test') {
        steps{
            withSonarQubeEnv('sonar_test') { // If you have configured more than one global server connection, you can specify its name
-           sh "${mvnHome}/bin/mvn sonar:sonar"
+           sh "${Home}/bin/ sonar:sonar"
            }    
         }
      }
