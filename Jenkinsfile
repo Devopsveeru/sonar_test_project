@@ -13,11 +13,12 @@ pipeline{
     }
      stage('sonar_test') {
        steps{
-       withSonarQubeEnv('sonarqube') {
+     withSonarQubeEnv('sonarqube') {
 	      sh '''
 		  mvn -e -B sonar:sonar -Dsonar.java.source=1.8 -Dsonar.host.url="${sonar_url}" -Dsonar.login="${sonar_admin}" -Dsonar.password ="${sonar_password}"
 		  '''
+          }
+        }		   
         }
-       }		   
-    } 
-}
+    }
+}          
